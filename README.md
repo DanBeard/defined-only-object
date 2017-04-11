@@ -4,74 +4,75 @@ Javascript Library that will make it easy to find typo's when accessing object p
 ## The problem
 
 Let's say you have a api like this.
-
-    var lightbulb = lightbulbFactory.getLightbulb(descriptor);
-    
+```javascript
+var lightbulb = lightbulbFactory.getLightbulb(descriptor);
+```   
 that returns an object like this:
-
-   var lightbulb =  {
-    turnOn: function() {...},
-    turnOff: function() {...},
-    isTurnedOn: true,
-    minimumPower : 12   //in Watts
-    }
-    
+```javascript
+var lightbulb =  {
+turnOn: function() {...},
+turnOff: function() {...},
+isTurnedOn: true,
+minimumPower : 12   //in Watts
+}
+```    
     
     
  There are some easy mistakes that can be made.  For example, given the above 12 watt lightbulb that is turned on:
  
-    //alert if we are turned off
-    if(!lightbulb.isTunedOn) {
-      alert("Turned Off")
-    }
-    
-    // We only have 20 watts. make sure there is enough power to run this lightbulb
-    if(lightbulb.miniumPower < 20) {
-      alert("Enough Power");
-    }
-    else alert("NOT ENOUGH POWER!");
-    
+ ```javascript
+//alert if we are turned off
+if(!lightbulb.isTunedOn) {
+  alert("Turned Off")
+}
+
+// We only have 20 watts. make sure there is enough power to run this lightbulb
+if(lightbulb.miniumPower < 20) {
+  alert("Enough Power");
+}
+else alert("NOT ENOUGH POWER!");
+```    
   
 Will alert "Turned Off" and "NOT ENOUGH POWER!".  Surprised?  Did you catch the typos?
-
-    > lightbulb.isTunedOn
-    undefined
-    >lightbulb.miniumPower
-    undefined
-    
+```javascript
+> lightbulb.isTunedOn
+undefined
+>lightbulb.miniumPower
+undefined
+```    
         
 OOPS! Wouldn't it be great if Javascript could help us find silly typos?  With this libary it can!
 
 ## The Solution
 
 import the library:
-
-    var DefinedOnlyObject = require('defined-only-object');
-  
-or using fancy ES2016 syntax
-
-    import DefinedOnlyObject from 'defined-only-object';
-    
+```javascript
+var DefinedOnlyObject = require('defined-only-object');
+//or using fancy ES2016 syntax
+import DefinedOnlyObject from 'defined-only-object';
+```    
 then wrap any object with DefinedOnlyObject(); and be saved from hours of debugging!
-    
-    var lightbulb = DefinedOnlyObject(lightbulbFactory.getLightbulb(descriptor));
-
+ ```javascript
+var lightbulb = DefinedOnlyObject(lightbulbFactory.getLightbulb(descriptor));
+```
 Or better yet, if you're building an API, be nice to your users and return your objects already pre-wrapped.
-    
-    function getLightbulb(descriptor) {
-        ...
-        return DefinedOnlyObject(result);
-        
-     }
-     
+```javascript    
+function getLightbulb(descriptor) {
+    ...
+    return DefinedOnlyObject(result);
+
+ }
+```     
      
      
  Now if the user makes a typo like:
-    
-    //alert if we are turned off
-    if(!lightbulb.isTunedOn) {
-      alert("Turned Off")
-    }
+```javascript    
+//alert if we are turned off
+if(!lightbulb.isTunedOn) {
+  alert("Turned Off")
+}
+ ```
+ 
     // throws
     > Uncaught isTunedOn is not a property of this object and would return undefined
     
