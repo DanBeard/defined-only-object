@@ -1,0 +1,17 @@
+{
+  "name": "defined-only-object",
+  "version": "1.0.0",
+  "description": "An object that will throw an exception if a user tries to access an undefined property",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "user",
+    "defined",
+    "object",
+    "undefined"
+  ],
+  "author": "Daniel I Beard",
+  "license": "MIT"
+}
