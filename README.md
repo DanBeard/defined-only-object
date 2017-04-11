@@ -77,4 +77,6 @@ if(!lightbulb.isTunedOn) {
     > Uncaught isTunedOn is not a property of this object and would return undefined
     
     
-   
+## Questions? Comments? More Features?
+
+Open an issue or create a pull request
