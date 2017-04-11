@@ -13,5 +13,10 @@
     "undefined"
   ],
   "author": "Daniel I Beard",
-  "license": "MIT"
+  "license": "MIT",
+  "repository" :
+  {
+    "type" : "git",
+    "url" : "https://github.com/DanBeard/defined-only-object/"
+  }
 }
